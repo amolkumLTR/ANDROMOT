@@ -2,6 +2,7 @@ package com.ltrsoft.andromot;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,10 @@ public class WebView_Activity extends AppCompatActivity {
 
         progressBar =(ProgressBar)findViewById(R.id.progressbar);
         WebView mywebview = (WebView) findViewById(R.id.webView);
+
+        Intent intent = getIntent();
+        String website = intent.getStringExtra("Links");
+
         mywebview.getSettings().setJavaScriptEnabled(true);
         WebSettings webSettings = mywebview.getSettings();
         mywebview.getSettings().setSupportZoom(false);
@@ -27,7 +32,7 @@ public class WebView_Activity extends AppCompatActivity {
         mywebview.getSettings().setBuiltInZoomControls(false);
 
         mywebview.setWebViewClient(new WebViewClient());
-        mywebview.loadUrl("http://www.google.com");
+        mywebview.loadUrl(website);
 
         mywebview.setWebChromeClient(new WebChromeClient()
         {
