@@ -62,6 +62,15 @@ public class ThresholdActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1=new Intent(ThresholdActivity.this,StatusActivity.class);
+                if(checkBox.isChecked() && !checkBox.equals("")) {
+                    final String etThresholdValue = etThreshold.getText().toString();
+                    intent1.putExtra("Threshold_Value", etThresholdValue);
+                }
+                else {
+                    final String tvThresholdValue = tvThreshold.getText().toString();
+                    intent1.putExtra("Threshold_Value", tvThresholdValue);
+                }
+
                 startActivity(intent1);
             }
         });

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class StatusActivity extends AppCompatActivity {
         WifiManager wifiManager;
@@ -22,7 +23,11 @@ public class StatusActivity extends AppCompatActivity {
         btnDeviceStatus = (Button) findViewById(R.id.btnDeviceStatus);
         btnOnlineStatus = (Button) findViewById(R.id.btnOnlineStatus);
 
-        urls[0]="http://192.168.4.1";
+        Intent intent1 = getIntent();
+        String threshold_value = intent1.getStringExtra("Threshold_Value");
+        Toast.makeText(getApplicationContext(),threshold_value,Toast.LENGTH_LONG).show();
+
+        urls[0]="http://192.168.0.80/" + threshold_value;
         urls[1]="https://ltr-soft.com/temp/show.php";
 
 
