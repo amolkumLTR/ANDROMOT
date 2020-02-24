@@ -30,8 +30,7 @@ public class StatusActivity extends AppCompatActivity {
         urls[0]="http://192.168.0.80/" + threshold_value;
         urls[1]="https://ltr-soft.com/temp/show.php";
 
-
-            btnDeviceStatus.setOnClickListener(new View.OnClickListener() {
+        btnDeviceStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
